@@ -6,8 +6,9 @@ public interface Teleports {
 
 class CanTeleport implements Teleports{
     public String teleport(){
-        return "Teleports Away!";
+        return "Teleported Away!";
     }
+
 }
 
 class CantTeleport implements Teleports{

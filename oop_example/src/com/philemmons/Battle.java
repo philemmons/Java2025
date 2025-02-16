@@ -4,6 +4,9 @@ package com.philemmons;
 public class Battle {
 
     public static void startFight(Warrior w1, Warrior w2) throws InterruptedException {
+
+       
+
         while (true) {
             if (getBattleResult(w1, w2).equals("Game Over")) {
                 System.err.println("Game Over!");
@@ -23,26 +26,29 @@ public class Battle {
 
         int dmgWarrTwo = wOneAttackNum - wTwoDefendNum;
 
-        if (dmgWarrTwo >= 0) {
+        if (dmgWarrTwo >= 0)
             wTwo.health -= dmgWarrTwo;
-        } else {
+        else
             dmgWarrTwo = 0;
-        }
 
         System.out.printf("%s attacks %s and deals " + "%d Damage\n", wOne.getName(), wTwo.getName(), dmgWarrTwo);
 
-        if (wTwo.health <= 0 && (wTwo.teleportType.teleport().equals("Teleports Away!"))) {
-            System.out.printf("%s has Teleports Away!\n", wTwo.getName());
+        int powerUp = (int)(wTwo.getOriginalHealth() * 0.20);
+
+
+
+        if (wTwo.health <= powerUp && (wTwo.teleportType.teleport().equals("Teleports Away!"))) {
+            System.out.printf("%s builds a"+ wTwo.activate(), wTwo.getName());
+            System.out.printf("%s has Teleported Away!\n", wTwo.getName());
             return "Game Over";
-        } else {
-            System.out.printf("%s has %d health\n\n", wTwo.getName(), wTwo.health);
         }
 
         Thread.sleep(250);
 
-        if (wTwo.health > 0)
+        if (wTwo.health > 0) {
+            System.out.printf("%s has %d health\n\n", wTwo.getName(), wTwo.health);
             return "Battle Continues";
-        else {
+        } else {
             System.out.printf("%s has Died and %s is Victorious!\n", wTwo.getName(), wOne.getName());
             return "Game Over";
         }
