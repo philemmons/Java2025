@@ -5,8 +5,6 @@ public class Battle {
 
     public static void startFight(Warrior w1, Warrior w2) throws InterruptedException {
 
-       
-
         while (true) {
             if (getBattleResult(w1, w2).equals("Game Over")) {
                 System.err.println("Game Over!");
@@ -33,11 +31,9 @@ public class Battle {
 
         System.out.printf("%s attacks %s and deals " + "%d Damage\n", wOne.getName(), wTwo.getName(), dmgWarrTwo);
 
-        int powerUp = (int)(wTwo.getOriginalHealth() * 0.20);
+        //int powerUp = (int)(wTwo.getOriginalHealth() * 0.20);
 
-
-
-        if (wTwo.health <= powerUp && (wTwo.teleportType.teleport().equals("Teleports Away!"))) {
+        if (wTwo.health <= 8 && (wTwo.teleportType.teleport().equals("Teleports Away!"))) {
             System.out.printf("%s builds a"+ wTwo.activate(), wTwo.getName());
             System.out.printf("%s has Teleported Away!\n", wTwo.getName());
             return "Game Over";

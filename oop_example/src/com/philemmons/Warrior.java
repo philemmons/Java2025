@@ -18,9 +18,10 @@ public class Warrior {
     public Warrior(String name, int health, int attackMax, int defendMax) {
         this.setName(name);
         this.health = health;
-        this.originalHealth = health;
         this.attackMax = attackMax;
         this.defendMax = defendMax;
+
+        this.originalHealth = health;
     }
 
     public int attack() {
