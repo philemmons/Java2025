@@ -45,8 +45,7 @@ public class JavaTutFiles {
 
         f2 = new File("f2.txt");
         try {
-            BufferedReader bR
-                    = new BufferedReader(new FileReader(f2));
+            BufferedReader bR = new BufferedReader(new FileReader(f2));
             String text = bR.readLine();
             while (text != null) {
                 System.out.println(text);
