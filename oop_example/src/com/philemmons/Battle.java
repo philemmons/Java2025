@@ -34,7 +34,7 @@ public class Battle {
         //int powerUp = (int)(wTwo.getOriginalHealth() * 0.20);
 
         if (wTwo.health <= 8 && (wTwo.teleportType.teleport().equals("Teleports Away!"))) {
-            System.out.printf("%s builds a"+ wTwo.activate(), wTwo.getName());
+            System.out.printf("%s builds a"+ wTwo.activate()+"\n", wTwo.getName());
             System.out.printf("%s has Teleported Away!\n", wTwo.getName());
             return "Game Over";
         }
