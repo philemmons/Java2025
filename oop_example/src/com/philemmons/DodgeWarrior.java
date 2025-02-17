@@ -11,6 +11,7 @@ public class DodgeWarrior extends Warrior {
         this.dodgePercent = dodgePercent;
 
         teleportType = new CanTeleport();
+        powerType = new PowerOn();
     }
 
     @Override

@@ -24,9 +24,9 @@ public class Battle {
 
         int dmgWarrTwo = wOneAttackNum - wTwoDefendNum;
 
-        if (dmgWarrTwo >= 0){
+        if (dmgWarrTwo >= 0) {
             wTwo.health -= dmgWarrTwo;
-        }else{
+        } else {
             dmgWarrTwo = 0;
         }
 
@@ -42,6 +42,11 @@ public class Battle {
         if (wTwo.health > 0) {
             System.out.printf("%s has %d health\n\n", wTwo.getName(), wTwo.health);
             return false;
+        }
+
+        if (wOne.activate()) {
+            System.out.printf("%s has turned %s into a FROG\n\n", wOne.getName(), wTwo.getName());
+            return true;
         } else {
             System.out.printf("%s has Died and %s is Victorious!\n", wTwo.getName(), wOne.getName());
             return true;
