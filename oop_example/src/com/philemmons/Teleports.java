@@ -5,6 +5,7 @@ public interface Teleports {
 }
 
 class CanTeleport implements Teleports{
+    @Override
     public String teleport(){
         return "Teleported Away!";
     }
@@ -12,6 +13,7 @@ class CanTeleport implements Teleports{
 }
 
 class CantTeleport implements Teleports{
+    @Override
     public String teleport(){
         return "No Teleport";
     }

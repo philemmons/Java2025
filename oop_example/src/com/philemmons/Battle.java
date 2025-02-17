@@ -24,22 +24,22 @@ public class Battle {
 
         int dmgWarrTwo = wOneAttackNum - wTwoDefendNum;
 
-        if (dmgWarrTwo >= 0)
+        if (dmgWarrTwo >= 0){
             wTwo.health -= dmgWarrTwo;
-        else
+        }else{
             dmgWarrTwo = 0;
-
+        }
+        
         System.out.printf("%s attacks %s and deals %d Damage\n", wOne.getName(), wTwo.getName(), dmgWarrTwo);
 
-        int powerUp = (int) (wTwo.getOriginalHealth() * 0.30);
+        //int powerUp = (int) (wTwo.getOriginalHealth() * 0.30);
 
         //if (wTwo.health <= powerUp) {
         //    wTwo.powerType = new PowerOn();
         //    
         //}
 
-        if (wTwo.health <= powerUp && (wTwo.teleportType.teleport().equals("Teleports Away!"))) {
-            System.out.printf("%s builds a" + wTwo.activate() + "\n", wTwo.getName());
+        if (wTwo.health <= 0 && (wTwo.teleportType.teleport().equals("Teleports Away!"))) {
             System.out.printf("%s has Teleported Away!\n", wTwo.getName());
             return "Game Over";
         }

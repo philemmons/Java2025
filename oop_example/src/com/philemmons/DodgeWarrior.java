@@ -13,6 +13,7 @@ public class DodgeWarrior extends Warrior {
         teleportType = new CanTeleport();
     }
 
+    @Override
     public int defend() {
         double chance = rand.nextDouble();
         if (chance <= dodgePercent) {

@@ -5,12 +5,14 @@ public interface ActivatePower {
 }
 
 class PowerOn implements ActivatePower{
+    @Override
     public String activate(){
         return "Power Surge!";
     }
 }
 
 class PowerOff implements ActivatePower{
+    @Override
     public String activate(){
         return "Power Fizzle...";
     }
