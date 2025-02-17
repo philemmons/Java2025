@@ -36,7 +36,7 @@ public class Warrior {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 

@@ -29,7 +29,7 @@ public class Battle {
         else
             dmgWarrTwo = 0;
 
-        System.out.printf("%s attacks %s and deals " + "%d Damage\n", wOne.getName(), wTwo.getName(), dmgWarrTwo);
+        System.out.printf("%s attacks %s and deals %d Damage\n", wOne.getName(), wTwo.getName(), dmgWarrTwo);
 
         int powerUp = (int) (wTwo.getOriginalHealth() * 0.30);
 
