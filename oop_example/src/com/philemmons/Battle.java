@@ -6,19 +6,19 @@ public class Battle {
     public static void startFight(Warrior w1, Warrior w2) throws InterruptedException {
 
         while (true) {
-            if (getBattleResult(w1, w2).equals("Game Over")) {
+            if (getBattleResult(w1, w2)) {
                 System.err.println("Game Over!");
                 break;
             }
 
-            if (getBattleResult(w2, w1).equals("Game Over")) {
+            if (getBattleResult(w2, w1)) {
                 System.err.println("Game Over!");
                 break;
             }
         }
     }
 
-    public static String getBattleResult(Warrior wOne, Warrior wTwo) throws InterruptedException {
+    public static boolean getBattleResult(Warrior wOne, Warrior wTwo) throws InterruptedException {
         int wOneAttackNum = wOne.attack();
         int wTwoDefendNum = wTwo.defend();
 
@@ -39,19 +39,19 @@ public class Battle {
         //    
         //}
 
-        if ((wTwo.health <= powerUp) && (wTwo.teleportType.teleport().equals("Teleports Away!"))) {
+        if ((wTwo.health <= powerUp) && (wTwo.teleportType.teleport())) {
             System.out.printf("%s has Teleported Away!\n", wTwo.getName());
-            return "Game Over";
+            return true;
         }
 
         Thread.sleep(250);
 
         if (wTwo.health > 0) {
             System.out.printf("%s has %d health\n\n", wTwo.getName(), wTwo.health);
-            return "Battle Continues";
+            return false;
         } else {
             System.out.printf("%s has Died and %s is Victorious!\n", wTwo.getName(), wOne.getName());
-            return "Game Over";
+            return true;
         }
     }
 }

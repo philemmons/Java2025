@@ -40,7 +40,7 @@ public class Warrior {
         this.name = name;
     }
 
-    public String teleports() {
+    public boolean teleports() {
         return teleportType.teleport();
     }
 
@@ -48,7 +48,7 @@ public class Warrior {
         teleportType = newTeleportType;
     }
 
-    public String activate() {
+    public boolean activate() {
         return powerType.activate();
     }
 

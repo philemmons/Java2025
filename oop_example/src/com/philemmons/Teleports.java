@@ -1,20 +1,20 @@
 package com.philemmons;
 
 public interface Teleports {
-    String teleport();
+    boolean teleport();
 }
 
 class CanTeleport implements Teleports{
     @Override
-    public String teleport(){
-        return "Teleported Away!";
+    public boolean teleport(){
+        return true;
     }
 
 }
 
 class CantTeleport implements Teleports{
     @Override
-    public String teleport(){
-        return "No Teleport";
+    public boolean teleport(){
+        return false;
     }
 }

@@ -1,19 +1,19 @@
 package com.philemmons;
 
 public interface ActivatePower {
-    String activate();
+    boolean activate();
 }
 
 class PowerOn implements ActivatePower{
     @Override
-    public String activate(){
-        return "Power Surge!";
+    public boolean activate(){
+        return true;
     }
 }
 
 class PowerOff implements ActivatePower{
     @Override
-    public String activate(){
-        return "Power Fizzle...";
+    public boolean activate(){
+        return false;
     }
 }
