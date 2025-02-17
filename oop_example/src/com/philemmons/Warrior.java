@@ -4,7 +4,7 @@ public class Warrior {
 
     protected String name = "Warrior";
     public int health = 0;
-    protected int originalHealth = 0;
+    protected int powerUp = 0;
     public int attackMax = 0;
     public int defendMax = 0;
 
@@ -21,7 +21,7 @@ public class Warrior {
         this.attackMax = attackMax;
         this.defendMax = defendMax;
 
-        this.originalHealth = health;
+        this.powerUp = (int)(health*0.3);
     }
 
     public int attack() {
@@ -54,10 +54,6 @@ public class Warrior {
 
     public void setPower(ActivatePower newPowerType) {
         powerType = newPowerType;
-    }
-
-    protected int getOriginalHealth() {
-        return originalHealth;
     }
 
 }
