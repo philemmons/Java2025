@@ -16,7 +16,7 @@
 
 ##### Threads share the same memory space, making communication and data sharing between them more efficient compared to separate processes.
     
--- Multitasking:
+- Multitasking:
 
 ##### Threads facilitate multitasking within a single application, allowing it to handle multiple requests or operations simultaneously. 
 
