@@ -1,6 +1,6 @@
 package com.philemmons;
 
-public class JavaTutBank {
+public class JavaTutBankSingelton {
 
     public static void main(String[] args) {
 
