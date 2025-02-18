@@ -1,13 +1,15 @@
 package com.philemmons;
 
-public class JavaTutBankSingelton {
+public class JavaTutBankSingleton {
 
     public static void main(String[] args) {
 
         ThreadTest threadT1 = new ThreadTest(new Customer("Sam"));
         threadT1.start();
+
         ThreadTest threadT2 = new ThreadTest(new Customer("Sue"));
         threadT2.start();
+        
         ThreadTest threadT3 = new ThreadTest(new Customer("Sid"));
         threadT3.start();
     }
