@@ -43,3 +43,5 @@
 - Control their instantiation (for example, hiding the constructors of a class)
 
 ##### The term comes from the mathematical concept of a singleton. 
+
+- Source: [en.wikipedia.org/wiki/Singleton_pattern](https://en.wikipedia.org/wiki/Singleton_pattern)
