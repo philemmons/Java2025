@@ -46,15 +46,15 @@ class BankAccount {
                 System.out.println(cust.name + " requested $"+ bal);
                 Thread.sleep(1000);
                 balance -= bal;
-                System.out.println( cust.name + " received $"+ bal);
+                System.out.println( cust.name + "received $"+ bal);
             } else{
-                System.out.println( cust.name +  "tried to exceed balance.");
+                System.out.println( cust.name +  " tried to exceed balance.");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println("   Current balance: $" + balance + "\n");
+        System.out.println("    Current balance: $" + balance + "\n");
     }
 }
 
