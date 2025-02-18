@@ -4,15 +4,15 @@
 
 ### Threads are important for several reasons:
 
--- Concurrency:
+- Concurrency:
 
 ##### Threads enable programs to perform multiple tasks concurrently, leading to better resource utilization and faster execution times, especially in applications with I/O operations or computationally intensive tasks.
     
--- Responsiveness:
+- Responsiveness:
     
 #####    By using threads, applications can remain responsive to user input even while performing long-running operations in the background.
     
--- Efficiency:
+- Efficiency:
 
 ##### Threads share the same memory space, making communication and data sharing between them more efficient compared to separate processes.
     
@@ -28,6 +28,6 @@
 
 ####  Concurrency and parallelism, which sound the same in English but aren't the same to computer scientists and programmers. Parallelism is actually running multiple things at the same time (or intended to be) and concurrency could be at the same time, but is better considered a design feature and not an execution feature.
 
--- Parallelism lets you speed up your program, taking advantage of the additional CPU cores or GPU shader units available to it.
+- Parallelism lets you speed up your program, taking advantage of the additional CPU cores or GPU shader units available to it.
 
--- Concurrency lets you simplify your program (usually, if it doesn't it should be reconsidered or cleaned up, or you just have a complex program). 
+- Concurrency lets you simplify your program (usually, if it doesn't it should be reconsidered or cleaned up, or you just have a complex program). 
