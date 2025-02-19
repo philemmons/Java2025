@@ -1,4 +1,4 @@
-# Java Database Connectivity (or JDBC for short) is a Java API designed to connect and manage relational databases in applications programmed with Java.
+## Java Database Connectivity (or JDBC for short) is a Java API designed to connect and manage relational databases in applications programmed with Java.
 
 ### The JDBC API uses JDBC drivers to interact with a database. There are different types of JDBC drivers:
 
