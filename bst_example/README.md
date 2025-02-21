@@ -39,3 +39,5 @@
 
 - A Binary search tree is a tree that follows some order to arrange the elements, whereas the binary tree does not follow any order.
 
+
+##### Source: [https://www.geeksforgeeks.org/introduction-to-binary-search-tree/](https://www.geeksforgeeks.org/introduction-to-binary-search-tree/)
