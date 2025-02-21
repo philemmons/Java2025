@@ -18,8 +18,9 @@
 
 ##### 2. What is a Binary Search Tree Operation?
 
-- There are major three operations in Binary Search Tree: 
-**1. Insertion
+- There are major three operations in Binary Search Tree:
+
+> **1. Insertion
 <br>
 2. Deletion
 <br>
