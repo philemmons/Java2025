@@ -20,11 +20,13 @@
 
 - There are major three operations in Binary Search Tree:
 
-> **1. Insertion
+**1. Insertion**
 <br>
-2. Deletion
+
+**2. Deletion**
 <br>
-3. Searching**
+
+**3. Searching**
         
 - Because of its properties its efficient to search any element in Binary Search Tree.
 
