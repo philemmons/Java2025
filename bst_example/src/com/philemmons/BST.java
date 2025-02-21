@@ -40,7 +40,7 @@ public class BST {
         }
     }
 
-    //InOrder Traversal - ascending order
+    //InOrder Traversal - ascending order:  left kids, root, right kids
     public void inOrder(Node focusNode) {
 
         if (focusNode != null) {
@@ -54,7 +54,7 @@ public class BST {
         }
     }
 
-    //PreOrder Traversal - root, all left kids, root, all right kids
+    //PreOrder Traversal - root, left kids, right kids
     public void preOrder(Node focusNode) {
 
         if (focusNode != null) {
@@ -67,7 +67,7 @@ public class BST {
         }
     }
 
-    //PreOrder Traversal - all left kids, root, all right kids, root
+    //PreOrder Traversal - left kids, right kids, root
     public void postOrder(Node focusNode) {
 
         if (focusNode != null) {
