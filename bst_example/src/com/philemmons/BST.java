@@ -1,5 +1,25 @@
 package com.philemmons;
 
+class Node {
+
+    int key;
+    String name;
+
+    Node leftKid;
+    Node rightKid;
+
+    Node(int key, String name) {
+        this.key = key;
+        this.name = name;
+
+    }
+
+    public String toString() {
+        return name + " has a key " + key;
+    }
+
+}
+
 public class BST {
 
     Node root;
@@ -121,26 +141,6 @@ public class BST {
         System.out.println("\n");
 
         System.out.println(theTree.findNode(30));
-    }
-
-}
-
-class Node {
-
-    int key;
-    String name;
-
-    Node leftKid;
-    Node rightKid;
-
-    Node(int key, String name) {
-        this.key = key;
-        this.name = name;
-
-    }
-
-    public String toString() {
-        return name + " has a key " + key;
     }
 
 }
