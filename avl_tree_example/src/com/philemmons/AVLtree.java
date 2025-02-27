@@ -3,16 +3,15 @@ package com.philemmons;
 class Node<T> {
 
     protected T data;
+    protected int height = 0;
 
     protected Node<T> leftKid;
     protected Node<T> rightKid;
 
-    protected Node<T> parent;
-
-    //protected int height = 0;
     public Node(T obj) {
         this.data = obj;
-        this.parent = this.leftKid = this.rightKid = null;
+        this.leftKid = this.rightKid = null;
+        height = 1;
     }
 
     public String toString() {
@@ -23,23 +22,46 @@ class Node<T> {
 
 class AVLtree<E> {
 
-    Node<E> root;
-    //private int currentSize;
+    private Node<E> root;
+
+    //protected int balanceVal;
 
     public AVLtree() {
         root = null;
-        //currentSize = 0;
+    }
+
+    private int height(Node<E> node) {
+
+        if (node == null) {
+            return 0;
+        }
+        return node.height;
+
+    }
+
+    private void updateHeight(Node<E> node) {
+
+        node.height = Math.max(height(node.leftKid), height(node.rightKid)) + 1;
+    }
+
+    private int getBalance(Node<E> node) {
+
+        if (node == null) {
+            return 0;
+        }
+        return height(node.leftKid) - height(node.rightKid);
     }
 
     public void add(E obj) {
-        Node<E> node = new Node<>(obj);
+        Node<E> newNode = new Node<>(obj);
 
         if (root == null) {
-            root = node;
-            //currentSize++;
+
+            root = newNode;
             return;
         }
-        add(root, node);
+
+        add(root, newNode);
     }
 
     public void add(Node<E> parent, Node<E> newNode) {
@@ -47,22 +69,21 @@ class AVLtree<E> {
         if (((Comparable<E>) newNode.data).compareTo(parent.data) > 0) {
 
             if (parent.rightKid == null) {
-
                 parent.rightKid = newNode;
-                newNode.parent = parent;
-                //currentSize++;
+
+                updateHeight(newNode);
 
             } else {
                 add(parent.rightKid, newNode);
             }
         } else {
             if (parent.leftKid == null) {
-
                 parent.leftKid = newNode;
-                newNode.parent = parent;
-                //currentSize++;
+
+                updateHeight(newNode);
 
             } else {
+
                 add(parent.leftKid, newNode);
             }
         }
@@ -71,80 +92,84 @@ class AVLtree<E> {
 
     private void checkBalance(Node<E> node) {
 
-        if ((height(node.leftKid) - height(node.rightKid) > 1)
-                || (height(node.leftKid) - height(node.rightKid) < -1)) {
-            reBalance(node);
+        int balanceVal = getBalance(node);
+
+        if ((balanceVal > 1) || (balanceVal < -1)) {
+            System.out.println("rebalance");
+           // reBalance(node);
         }
 
-        if (node.parent == null) {
-            return;
-        }
+        //checkBalance(node.leftKid);
+        
 
-        checkBalance(node.parent);
     }
 
     private void reBalance(Node<E> node) {
 
-        if (height(node.leftKid) - height(node.rightKid) > 1) {
-            if (height(node.leftKid.leftKid) > height(node.leftKid.rightKid)) {
-                node = rightRotate(node);
-            } else {
-                node = leftRightRotate(node);
-            }
-        } else {
+        int balanceVal = getBalance(node);
 
-            if (height(node.rightKid.leftKid) > height(node.rightKid.rightKid)) {
-                node = leftRotate(node);
-            } else {
-                node = rightLeftRotate(node);
-            }
+        // If this node becomes unbalanced, then there are 4 cases
+        // leftKid Rotate
+        if (balanceVal > 1 && (((Comparable<E>) node.data).compareTo(node.leftKid.data) < 0)) {
+
+            rightRotate(node);
         }
 
-        if (node.parent == null) {
-            root = node;
+        // rightKid Rotate
+        if (balanceVal < -1 && (((Comparable<E>) node.data).compareTo(node.rightKid.data) > 0)) {
+
+            leftRotate(node);
         }
 
-    }
+        // leftKid rightKid Rotate
+        if (balanceVal > 1 && (((Comparable<E>) node.data).compareTo(node.leftKid.data) < 0)) {
 
-    private int height(Node<E> node) {
-
-        if (node == null) {
-            return 0;
+            node.leftKid = leftRotate(node.leftKid);
+            rightRotate(node);
         }
 
-        int leftHeight = height(node.leftKid);
-        int rightHeight = height(node.rightKid);
+        // rightKid leftKid Rotate
+        if (balanceVal < -1 && (((Comparable<E>) node.data).compareTo(node.rightKid.data) > 0)) {
 
-        return Math.max(leftHeight, rightHeight) + 1;
-
+            node.rightKid = rightRotate(node.rightKid);
+            leftRotate(node);
+        }
     }
 
     private Node<E> rightRotate(Node<E> node) {
-        Node<E> leftNode = node.leftKid;
+        Node<E> n1 = node.leftKid;
+        Node<E> n2 = n1.rightKid;
 
-        node.leftKid = leftNode.rightKid;
-        leftNode.rightKid = node;
-        
-        return leftNode;
+        // Perform rotation
+        n1.rightKid = node;
+        node.leftKid = n2;
+
+        // Update heights
+        node.height = Math.max(height(node.leftKid), height(node.rightKid)) + 1;
+        n1.height = Math.max(height(n1.leftKid), height(n1.rightKid)) + 1;
+
+        // Return new root
+        return n1;
 
     }
 
     private Node<E> leftRotate(Node<E> node) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftRotate'");
+        Node<E> n1 = node.rightKid;
+        Node<E> n2 = n1.leftKid;
+
+        // Perform rotation
+        n1.leftKid = node;
+        node.rightKid = n2;
+
+        // Update heights
+        node.height = Math.max(height(node.leftKid), height(node.rightKid)) + 1;
+        n1.height = Math.max(height(n1.leftKid), height(n1.rightKid)) + 1;
+
+        // Return new root
+        return n1;
     }
 
-    private Node<E> leftRightRotate(Node<E> node) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftRightRotate'");
-    }
-
-    private Node<E> rightLeftRotate(Node<E> node) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightLeftRotate'");
-    }
-
-    //PreOrder Traversal - root, left kids, right kids
+    //PreOrder Traversal - root, leftKid kids, rightKid kids
     public void inOrder(Node<E> focusNode) {
 
         if (focusNode != null) {
@@ -161,7 +186,7 @@ class AVLtree<E> {
         System.out.println("Hello AVL Tree!\n");
 
         AVLtree<Integer> theTree = new AVLtree<>();
-        /* 
+        
         theTree.add(43);
         theTree.add(18);
         theTree.add(22);
@@ -174,12 +199,16 @@ class AVLtree<E> {
         theTree.add(50);
         theTree.add(62);
         theTree.add(51);
-         */
-        theTree.add(10);
-        theTree.add(8);
-        theTree.add(12);
-        theTree.add(4);
+       
 
+  /* 
+  theTree.add(10);
+  theTree.add(20);
+  theTree.add(30);
+  theTree.add(40);
+  theTree.add(50);
+  theTree.add(25);
+*/
         theTree.inOrder(theTree.root);
 
     }
