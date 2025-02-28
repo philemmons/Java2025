@@ -1,14 +1,13 @@
 package com.philemmons;
 
-
 class Node<T> {
 
     private T data;
-    private Node<T> nextNode;
+    private Node<T> next;
 
     Node(T data) {
         this.data = data;
-        nextNode = null;
+        next = null;
     }
 
     @Override
@@ -16,43 +15,101 @@ class Node<T> {
         return "--" + data;
     }
 
-    private T getData() {
-        return this.getData();
+    protected T getData() {
+        return this.data;
     }
 
-    private void setData(T obj) {
+    protected void setData(T obj) {
         this.data = obj;
+    }
+
+    public void setNextNode(Node<T> newNode) {
+        this.next = newNode;
+    }
+
+    public Node<T> getNextNode() {
+        return this.next;
     }
 
 }
 
 public class LinkedList<T> implements List<T> {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
-    }
+    private Node<T> root;
+    private int size;
 
     @Override
     public void insert(T data) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+
+        Node<T> node = new Node<>(data);
+        node.setNextNode(root);
+        root = node;
+        size++;
+
     }
 
     @Override
-    public void remove(T data) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    public void remove(T oldData) {
+        if (root.getData().equals(oldData)) {
+            root = root.getNextNode();
+
+        } else {
+            remove(oldData, root, root.getNextNode());
+        }
+        size--;
     }
 
+    //RECURSIVE EXAMPLE
+    private void remove(T data, Node<T> previousNode, Node<T> currentNode) {
+        if (currentNode != null) {
+            if (currentNode.getData().equals(data)) {
+                previousNode.setNextNode(currentNode.getNextNode());
+                return;
+            }
+            remove(data, currentNode, currentNode.getNextNode());
+        }
+    }
+
+    //NON RECURSIVE EXAMPLE
     @Override
     public void traverse() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'traverse'");
+
+        if (isEmpty()) {
+            System.out.println("List is EMPTY!");
+            return;
+        }
+
+        Node<T> currentNode = root;
+        while (currentNode != null) {
+
+            System.out.print(currentNode);
+            currentNode = currentNode.getNextNode();
+        }
+        System.out.println("\n");
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return size == 0;
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        LinkedList<Integer> linkedList = new LinkedList<>();
+
+        linkedList.insert(10);
+        linkedList.insert(20);
+        linkedList.insert(30);
+        linkedList.insert(40);
+        linkedList.insert(50);
+
+        linkedList.traverse();
+
+        linkedList.remove(30);
+
+        linkedList.traverse();
+
+        System.out.println(linkedList.isEmpty());
+
     }
 }
