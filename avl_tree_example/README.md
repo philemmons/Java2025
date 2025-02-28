@@ -1,18 +1,12 @@
-## Getting Started
+# AVL Tree
+## Self-Balancing Binary Tree - Generics
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+- The AVL tree implementation provided is a custom-written generic AVL tree in Java. It is based on standard AVL tree concepts, including height balancing, rotations, and insertion logic, which are widely available in data structure textbooks and online references. If you're looking for authoritative sources, you can refer to:
 
-## Folder Structure
+- Introduction to Algorithms by Cormen, Leiserson, Rivest, and Stein (CLRS) – Covers AVL trees in detail.
 
-The workspace contains two folders by default, where:
+- Data Structures and Algorithm Analysis in Java by Mark A. Weiss – Explains AVL trees with Java examples.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- GeeksforGeeks (geeksforgeeks.org) – Offers similar AVL tree implementations in Java.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+ #### Source: [AVL Tree Explained and Implemented in Java](https://www.youtube.com/watch?v=Jj9Mit24CWk)
