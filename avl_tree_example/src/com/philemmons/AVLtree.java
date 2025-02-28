@@ -89,24 +89,24 @@ class AVLTree<T extends Comparable<T>> {
         int balance = getBalance(parent);
 
         if (balance > 1 && data.compareTo(parent.leftKid.data) < 0) {
-            System.out.println("Right Rotation");
+            System.out.println("Right Rotation - "  + parent.data);
             return rightRotate(parent);
         }
 
         if (balance < -1 && data.compareTo(parent.rightKid.data) > 0) {
-            System.out.println("Left Rotation");
+            System.out.println("Left Rotation - "  + parent.data);
             return leftRotate(parent);
         }
 
         if (balance > 1 && data.compareTo(parent.leftKid.data) > 0) {
-            System.out.println("Left-Right Rotation");
+            System.out.println("Left-Right Rotation - " + parent.data);
             parent.leftKid = leftRotate(parent.leftKid);
 
             return rightRotate(parent);
         }
 
         if (balance < -1 && data.compareTo(parent.rightKid.data) < 0) {
-            System.out.println("Right-Left Rotation");
+            System.out.println("Right-Left Rotation - " + parent.data);
             parent.rightKid = rightRotate(parent.rightKid);
 
             return leftRotate(parent);
