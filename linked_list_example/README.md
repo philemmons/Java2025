@@ -8,8 +8,6 @@
 - Null Elements: Yes, many
 - One of three fundamental List Collection Framework in Java
 
-<br><br>
-
 ### Variations
 
 - Simple LL − Item navigation is forward only.
