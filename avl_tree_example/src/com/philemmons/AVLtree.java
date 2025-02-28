@@ -63,10 +63,10 @@ class AVLTree<T extends Comparable<T>> {
 
     public void insert(T data) {
 
-        root = insertRec(root, data);
+        root = insertNode(root, data);
     }
 
-    private Node<T> insertRec(Node<T> parent, T data) {
+    private Node<T> insertNode(Node<T> parent, T data) {
 
         if (parent == null) {
             return new Node<>(data);
@@ -74,11 +74,11 @@ class AVLTree<T extends Comparable<T>> {
 
         if (data.compareTo(parent.data) < 0) {
 
-            parent.leftKid = insertRec(parent.leftKid, data);
+            parent.leftKid = insertNode(parent.leftKid, data);
 
         } else if (data.compareTo(parent.data) > 0) {
 
-            parent.rightKid = insertRec(parent.rightKid, data);
+            parent.rightKid = insertNode(parent.rightKid, data);
 
         } else {
 
@@ -89,16 +89,19 @@ class AVLTree<T extends Comparable<T>> {
         int balance = getBalance(parent);
 
         if (balance > 1 && data.compareTo(parent.leftKid.data) < 0) {
+
             System.out.println("Right Rotation - "  + parent.data);
             return rightRotate(parent);
         }
 
         if (balance < -1 && data.compareTo(parent.rightKid.data) > 0) {
+
             System.out.println("Left Rotation - "  + parent.data);
             return leftRotate(parent);
         }
 
         if (balance > 1 && data.compareTo(parent.leftKid.data) > 0) {
+
             System.out.println("Left-Right Rotation - " + parent.data);
             parent.leftKid = leftRotate(parent.leftKid);
 
@@ -106,6 +109,7 @@ class AVLTree<T extends Comparable<T>> {
         }
 
         if (balance < -1 && data.compareTo(parent.rightKid.data) < 0) {
+
             System.out.println("Right-Left Rotation - " + parent.data);
             parent.rightKid = rightRotate(parent.rightKid);
 
@@ -122,7 +126,7 @@ class AVLTree<T extends Comparable<T>> {
     private void inOrder(Node<T> parent) {
 
         if (parent != null) {
-
+            
             inOrder(parent.leftKid);
             System.out.print(parent.data + " ");
             inOrder(parent.rightKid);
