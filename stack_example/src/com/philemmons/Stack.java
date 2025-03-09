@@ -48,9 +48,9 @@ public class Stack<T> {
 
         Stack<String> myStringStack = new Stack<>();
 
-        myStringStack.push("Phil");
-        myStringStack.push("Jean");
-        myStringStack.push("Vic");
+        myStringStack.push("Peanut Butter");
+        myStringStack.push("Jelly");
+        myStringStack.push("Vanilla");
 
         System.out.println(myStringStack.peek());
         System.out.println(myStringStack.pop());
