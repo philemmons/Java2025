@@ -36,3 +36,5 @@ Caching Mechanisms, Store precomputed values for quick lookup (e.g., user authen
 ### Conclusion
 
 Using a generic HashMap enhances type safety, reusability, and performance while offering a scalable solution for managing key-value relationships. It is an essential tool in modern software development for optimizing data retrieval and organization.
+
+### Source: chatGPT 
