@@ -4,7 +4,7 @@
 
 ## Queues!
 
-#### FIFO - First In first Out: The first element enqueued is the first element to be dequeued.  
+### FIFO - First In first Out: The first element enqueued is the first element to be dequeued.  
 
 - Linear Data Structures
 
