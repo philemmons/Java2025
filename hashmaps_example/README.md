@@ -2,7 +2,7 @@
 
 ### Overview
 
- - A HashMap is a data structure that implements the key-value mapping concept, allowing for efficient data retrieval. When combined with generics, a HashMap can store any data type, providing flexibility and type safety in various programming applications.
+ A HashMap is a data structure that implements the key-value mapping concept, allowing for efficient data retrieval. When combined with generics, a HashMap can store any data type, providing flexibility and type safety in various programming applications.
 
 ### Why Use a Generic HashMap?
 
@@ -10,13 +10,13 @@
 
 - Generics allow defining the type of keys and values in advance, preventing runtime errors caused by incorrect type casting.
 
-- Example: HashMap<String, Integer> ensures all keys are Strings and all values are Integers.
+> Example: HashMap<String, Integer> ensures all keys are Strings and all values are Integers.
 
 ##### 2. Code Reusability
 
 -  With generics, the same HashMap implementation can be used for different data types without rewriting the logic.
 
-- Example: A single HashMap can be used to store user data, product details, or configurations.
+> Example: A single HashMap can be used to store user data, product details, or configurations.
 
 ##### 3. Improved Performance
 
@@ -26,7 +26,7 @@
 
 - Generic HashMaps support different types of objects, making them highly adaptable to changing requirements.
 
-- Example: Switching from HashMap<String, String> to HashMap<String, List<Integer>> without modifying the underlying structure.
+> Example: Switching from HashMap<String, String> to HashMap<String, List<Integer>> without modifying the underlying structure.
 
 
 ### Common Use Cases
@@ -35,4 +35,4 @@ Caching Mechanisms, Store precomputed values for quick lookup (e.g., user authen
 
 ### Conclusion
 
-- Using a generic HashMap enhances type safety, reusability, and performance while offering a scalable solution for managing key-value relationships. It is an essential tool in modern software development for optimizing data retrieval and organization.
+Using a generic HashMap enhances type safety, reusability, and performance while offering a scalable solution for managing key-value relationships. It is an essential tool in modern software development for optimizing data retrieval and organization.
